@@ -5,6 +5,8 @@ set softtabstop=4                                                   "softtab val
 set tabstop=4                                                       "keep default for softtab compat.
 
 set spell
+map ,s :set spell<cr>
+map ,n :set nospell<cr>
 
 set hlsearch                                                        "highlight what I find
 set incsearch                                                       "show matches as I type
@@ -140,4 +142,9 @@ let g:maplocalleader = "\\"
 
 au BufRead,BufNewFile *.rb set tabstop=2
 au BufRead,BufNewFile *.rb set shiftwidth=2
+
+" On ubuntu (running Vim in gnome-terminal)
+" The reason for the double-command on <C-c> is due to some weirdness with the X clipboard system.
+vmap <C-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 
