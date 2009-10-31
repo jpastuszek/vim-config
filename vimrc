@@ -148,3 +148,14 @@ au BufRead,BufNewFile *.rb set shiftwidth=2
 vmap <C-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
 nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 
+" sessions
+set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
+map <c-q> :mksession! ~/.vim/.session <cr>
+map <c-s> :source ~/.vim/.session <cr>
+
+" tabs
+" map tl :tabnext<CR> " use gt
+" map th :tabprev<CR> " use gT
+map tn :tabnew<CR>
+map td :tabclose<CR>
+
