@@ -168,3 +168,5 @@ endfunction
 
 nmap <silent> ;v  :call Viki()<CR>
 
+set nobackup
+
