@@ -160,3 +160,5 @@ map <c-s> :source ~/.vim/.session <cr>
 map tn :tabnew<CR>
 map td :tabclose<CR>
 
+map pa :set paste<CR>
+
