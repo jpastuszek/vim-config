@@ -162,3 +162,9 @@ map td :tabclose<CR>
 
 map pa :set paste<CR>
 
+function! Viki()
+    edit ~/Misc/Viki/StartPage.viki
+endfunction
+
+nmap <silent> ;v  :call Viki()<CR>
+
