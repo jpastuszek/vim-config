@@ -38,8 +38,8 @@ nmap ;r :r ~/.vimxfer<CR>
 nmap ;a :. w! >>~/.vimxfer<CR>
 
 if has('gui_running')
-    " set columns=300                                                     "set width of window off open
-    " set lines=50                                                        "height of window off open
+    set columns=9999
+    set lines=9999
     set guitablabel=%t                                                  "tabs display file name
 
     "kick it old school, no gui needed.
@@ -170,4 +170,6 @@ endfunction
 nmap <silent> ;v  :call Viki()<CR>
 
 set nobackup
+
+set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 
