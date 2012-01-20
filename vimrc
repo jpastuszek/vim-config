@@ -1,3 +1,4 @@
+call pathogen#infect()
 set modeline                                                        "autoloading of this # vim: settings from edited files
 set noexpandtab                                                       "expand tabs to spaces, when not an indent
 set smarttab                                                        "let's be smart about our tabs
