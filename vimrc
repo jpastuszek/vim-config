@@ -174,3 +174,6 @@ set nobackup
 
 set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 
+" put .swp and others to /tmp dir and not pwd
+set dir=/tmp//
+
