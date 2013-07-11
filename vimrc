@@ -177,3 +177,9 @@ set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 " put .swp and others to /tmp dir and not pwd
 set dir=/tmp//
 
+" use github markdown by default
+augroup markdown
+	au!
+	au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
