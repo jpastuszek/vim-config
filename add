@@ -1,0 +1,4 @@
+cd ~/.vim/bundle
+git submodule add $1
+git submodule init
+
