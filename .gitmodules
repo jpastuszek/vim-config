@@ -31,3 +31,15 @@
 [submodule "bundle/vim-addon-local-vimrc"]
 	path = bundle/vim-addon-local-vimrc
 	url = https://github.com/MarcWeber/vim-addon-local-vimrc.git
+[submodule "bundle/butane.vim"]
+	path = bundle/butane.vim
+	url = https://github.com/Soares/butane.vim.git
+[submodule "bundle/CamelCaseMotion"]
+	path = bundle/CamelCaseMotion
+	url = https://github.com/bkad/CamelCaseMotion.git
+[submodule "bundle/ctrlp.vim"]
+	path = bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

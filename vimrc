@@ -191,3 +191,25 @@ map <C-n> :NERDTreeToggle<CR>
 " Git
 map <C-l> :Git push<CR>
 map <C-k> :Git commit -a<CR>
+
+" Ignore witespace in vimdiff
+set diffopt+=iwhite
+set diffexpr=""
+
+" Buffer management
+noremap <leader>bd :Bclose<CR>      " Close the buffer.
+noremap <leader>bl :ls<CR>          " List buffers.
+noremap <leader>bn :bn<CR>          " Next buffer.
+noremap <leader>bp :bp<CR>          " Previous buffer.
+noremap <leader>bt :b#<CR>          " Toggle to most recently used buffer.
+noremap <leader>bx :Bclose!<CR>     " Close the buffer & discard changes.
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
