@@ -6,6 +6,16 @@ set shiftwidth=4                                                    "make tabs 4
 set softtabstop=4                                                   "softtab value, 4 spaces
 set tabstop=4                                                       "keep default for softtab compat.
 
+" remove trailing lines
+function! TrimWhiteSpace()
+	let l = line(".")
+	let c = col(".")
+	%s/\s\+$//e
+	%s/\t\+$//e
+	call cursor(l, c)
+endfunction
+autocmd BufWritePre * :call TrimWhiteSpace()
+
 "set spell
 map ,s :set spell<cr>
 map ,n :set nospell<cr>
@@ -14,9 +24,9 @@ set hlsearch                                                        "highlight w
 set incsearch                                                       "show matches as I type
 set ignorecase smartcase                                            "ignore case unless I type in multi-case
 
-set nocompatible 
-filetype plugin indent on 
-syntax on 
+set nocompatible
+filetype plugin indent on
+syntax on
 
 " Left and right are for switching buffers, not moving the cursor:
 map <c-9> <ESC>:bn<CR>
@@ -35,7 +45,7 @@ map ,<Tab> :set hls<CR>/\n.*\n/<CR>
 nmap ;w :. w! ~/.vimxfer<CR>
 " Read
 nmap ;r :r ~/.vimxfer<CR>
-" Append 
+" Append
 nmap ;a :. w! >>~/.vimxfer<CR>
 
 if has('gui_running')
@@ -139,7 +149,7 @@ set updatetime=400
 " Viki config
 let g:vikiOpenFileWith_ANY = "exec 'silent !kfmclient exec '. escape('%{FILE}', ' &!%')"
 let g:vikiOpenUrlWith_http = "exec 'silent !firefox '. escape('%{URL}', ' &!%')"
-au BufRead,BufNewFile *.viki set ft=viki 
+au BufRead,BufNewFile *.viki set ft=viki
 let g:vikiNameSuffix = ".viki"
 
 let g:maplocalleader = "\\"
@@ -218,6 +228,7 @@ let g:syntastic_check_on_wq = 0
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
 
 " Unite
 let g:unite_source_history_yank_enable = 1
@@ -248,9 +259,11 @@ function! s:unite_settings()
 	imap <buffer> <C-j>   <Plug>(unite_select_next_line)
 	imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
-			
+
 " vim-gitgutter
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 highlight clear SignColumn
 
+" vim-ruby
+let ruby_spellcheck_strings = 1
