@@ -240,6 +240,7 @@ nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outl
 nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer  -quick-match buffer<cr>
 nnoremap <leader>g :<C-u>Unite -no-split -buffer-name=grep	  grep:.<cr>
+nnoremap <Leader>s :<C-u>Unite -no-split -buffer-name=grep    grep:.::<C-R><C-w><CR>
 
 " Ag (the_platinum_searcher)
 " brew install pt
@@ -266,4 +267,4 @@ let g:gitgutter_eager = 1
 highlight clear SignColumn
 
 " vim-ruby
-let ruby_spellcheck_strings = 1
+let g:ruby_spellcheck_strings = 1
