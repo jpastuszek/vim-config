@@ -1,10 +1,20 @@
 call pathogen#infect()
-set modeline                                                        "autoloading of this # vim: settings from edited files
+set modeline                                                        "autoloading of this
 set noexpandtab                                                       "expand tabs to spaces, when not an indent
 set smarttab                                                        "let's be smart about our tabs
 set shiftwidth=4                                                    "make tabs 4 spaces
 set softtabstop=4                                                   "softtab value, 4 spaces
 set tabstop=4                                                       "keep default for softtab compat.
+
+" remove trailing lines
+function! TrimWhiteSpace()
+	let l = line(".")
+	let c = col(".")
+	%s/\s\+$//e
+	%s/\t\+$//e
+	call cursor(l, c)
+endfunction
+autocmd BufWritePre * :call TrimWhiteSpace()
 
 "set spell
 map ,s :set spell<cr>
@@ -14,13 +24,13 @@ set hlsearch                                                        "highlight w
 set incsearch                                                       "show matches as I type
 set ignorecase smartcase                                            "ignore case unless I type in multi-case
 
-set nocompatible 
-filetype plugin indent on 
-syntax on 
+set nocompatible
+filetype plugin indent on
+syntax on
 
 " Left and right are for switching buffers, not moving the cursor:
-map <right> <ESC>:bn<RETURN>
-map <left> <ESC>:bp<RETURN>
+map <c-9> <ESC>:bn<CR>
+map <c-0> <ESC>:bp<CR>
 
 " disable search highlighting with a single keypress:
 map - :nohls<cr>
@@ -35,7 +45,7 @@ map ,<Tab> :set hls<CR>/\n.*\n/<CR>
 nmap ;w :. w! ~/.vimxfer<CR>
 " Read
 nmap ;r :r ~/.vimxfer<CR>
-" Append 
+" Append
 nmap ;a :. w! >>~/.vimxfer<CR>
 
 if has('gui_running')
@@ -134,10 +144,12 @@ set undolevels=1000           " 1000 undos
 
 set tags+=tags;/
 
+set updatetime=400
+
 " Viki config
 let g:vikiOpenFileWith_ANY = "exec 'silent !kfmclient exec '. escape('%{FILE}', ' &!%')"
 let g:vikiOpenUrlWith_http = "exec 'silent !firefox '. escape('%{URL}', ' &!%')"
-au BufRead,BufNewFile *.viki set ft=viki 
+au BufRead,BufNewFile *.viki set ft=viki
 let g:vikiNameSuffix = ".viki"
 
 let g:maplocalleader = "\\"
@@ -184,9 +196,9 @@ augroup markdown
 augroup END
 
 " start nerdtree when no file was selected
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" map <C-n> :NERDTreeToggle<CR>
 
 " Git
 map <C-l> :Git push<CR>
@@ -219,3 +231,45 @@ set hidden
 let g:racer_cmd			= "/Users/jpastuszek/.vim/bundle/racer/target/release/racer"
 let $RUST_SRC_PATH		= "/Users/jpastuszek/Library/Application Support/rust"
 
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
+
+" Unite
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer  -quick-match buffer<cr>
+nnoremap <leader>g :<C-u>Unite -no-split -buffer-name=grep	  grep:.<cr>
+nnoremap <Leader>s :<C-u>Unite -no-split -buffer-name=grep    grep:.::<C-R><C-w><CR>
+
+" Ag (the_platinum_searcher)
+" brew install pt
+if executable('pt')
+	let g:unite_source_grep_command = 'pt'
+	let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+	let g:unite_source_grep_recursive_opt = ''
+	let g:unite_source_grep_encoding = 'utf-8'
+endif
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+	" Play nice with supertab
+	let b:SuperTabDisabled=1
+	" Enable navigation with control-j and control-k in insert mode
+	imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+	imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
+
+" vim-gitgutter
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
+highlight clear SignColumn
+
+" vim-ruby
+let g:ruby_spellcheck_strings = 1
