@@ -213,3 +213,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Rust/Racer
+set hidden
+let g:racer_cmd			= "/Users/jpastuszek/.vim/bundle/racer/target/release/racer"
+let $RUST_SRC_PATH		= "/Users/jpastuszek/Library/Application Support/rust"
+
