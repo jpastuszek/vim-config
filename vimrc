@@ -225,6 +225,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" eruby warnings in puppet templates
+let g:syntastic_quiet_messages = {"regex": 'possibly useless use of a variable in void context'}
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
