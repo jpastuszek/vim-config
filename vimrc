@@ -195,15 +195,6 @@ augroup markdown
 	au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
-" start nerdtree when no file was selected
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" map <C-n> :NERDTreeToggle<CR>
-
-" Git
-map <C-l> :Git push<CR>
-map <C-k> :Git commit -a<CR>
-
 " Ignore witespace in vimdiff
 set diffopt+=iwhite
 set diffexpr=""
