@@ -219,6 +219,11 @@ let g:syntastic_check_on_wq = 0
 " eruby warnings in puppet templates; ruby variable shadowing warning
 let g:syntastic_quiet_messages = {"regex": 'possibly useless use of a variable in void context\|shadowing outer local variable'}
 
+" Rust/Racer
+set hidden
+let g:racer_cmd			= "/Users/jpastuszek/.vim/bundle/racer/target/release/racer"
+let $RUST_SRC_PATH		= "/Users/jpastuszek/Library/Application Support/rust"
+
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
