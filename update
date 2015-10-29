@@ -1,0 +1,1 @@
+cd bundle && ls | while read F; do (cd $F && git pull origin master); done

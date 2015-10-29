@@ -220,9 +220,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_quiet_messages = {"regex": 'possibly useless use of a variable in void context\|shadowing outer local variable'}
 
 " Rust/Racer
-set hidden
-let g:racer_cmd			= "/Users/jpastuszek/.vim/bundle/racer/target/release/racer"
-let $RUST_SRC_PATH		= "/Users/jpastuszek/Library/Application Support/rust"
+let g:racer_cmd			= $HOME . "/.vim/bundle/racer/target/release/racer"
+let $RUST_SRC_PATH		= $HOME . "/.multirust/toolchains/master/src"
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -240,7 +239,7 @@ nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer  -quick-match buffe
 nnoremap <leader>g :<C-u>Unite -no-split -buffer-name=grep	  grep:.<cr>
 nnoremap <Leader>s :<C-u>Unite -no-split -buffer-name=grep    grep:.::<C-R><C-w><CR>
 
-" Ag (the_platinum_searcher)
+" pt (the_platinum_searcher)
 " brew install pt
 if executable('pt')
 	let g:unite_source_grep_command = 'pt'
@@ -266,3 +265,4 @@ highlight clear SignColumn
 
 " vim-ruby
 let g:ruby_spellcheck_strings = 1
+
