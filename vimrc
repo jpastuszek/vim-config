@@ -266,3 +266,7 @@ highlight clear SignColumn
 
 " vim-ruby
 let g:ruby_spellcheck_strings = 1
+" Dash
+"nnoremap <Leader>d :<C-u>Dash <C-R><C-w><CR>
+nmap <silent> <leader>d <Plug>DashSearch
+
