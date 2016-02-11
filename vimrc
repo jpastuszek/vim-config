@@ -26,6 +26,7 @@ set ignorecase smartcase                                            "ignore case
 
 set nocompatible
 filetype plugin indent on
+set smartindent
 syntax on
 
 " Left and right are for switching buffers, not moving the cursor:
