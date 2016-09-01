@@ -58,3 +58,9 @@
 [submodule "bundle/vim-quickrun"]
 	path = bundle/vim-quickrun
 	url = https://github.com/thinca/vim-quickrun.git
+[submodule "bundle/targets.vim"]
+	path = bundle/targets.vim
+	url = https://github.com/wellle/targets.vim
+[submodule "bundle/logstash.vim"]
+	path = bundle/logstash.vim
+	url = https://github.com/robbles/logstash.vim.git
