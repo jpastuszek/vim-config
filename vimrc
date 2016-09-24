@@ -240,9 +240,15 @@ nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer  -quick-match buffe
 nnoremap <leader>g :<C-u>Unite -no-split -buffer-name=grep	  grep:.<cr>
 nnoremap <Leader>s :<C-u>Unite -no-split -buffer-name=grep    grep:.::<C-R><C-w><CR>
 
-" pt (the_platinum_searcher)
-" brew install pt
-if executable('pt')
+if executable('rg')
+	" cargo install ripgrep
+	let g:unite_source_grep_command = 'rg'
+	let g:unite_source_grep_default_opts = '--vimgrep --color never'
+	let g:unite_source_grep_recursive_opt = ''
+	let g:unite_source_grep_encoding = 'utf-8'
+elseif executable('pt')
+	" pt (the_platinum_searcher)
+	" brew install pt
 	let g:unite_source_grep_command = 'pt'
 	let g:unite_source_grep_default_opts = '--nogroup --nocolor'
 	let g:unite_source_grep_recursive_opt = ''
