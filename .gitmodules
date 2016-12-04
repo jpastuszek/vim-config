@@ -64,3 +64,6 @@
 [submodule "bundle/logstash.vim"]
 	path = bundle/logstash.vim
 	url = https://github.com/robbles/logstash.vim.git
+[submodule "bundle/idris-vim"]
+	path = bundle/idris-vim
+	url = https://github.com/idris-hackers/idris-vim.git
