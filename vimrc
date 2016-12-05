@@ -12,6 +12,7 @@ function! TrimWhiteSpace()
 	let c = col(".")
 	%s/\s\+$//e
 	%s/\t\+$//e
+	%s#\($\n\s*\)\+\%$##
 	call cursor(l, c)
 endfunction
 autocmd BufWritePre * :call TrimWhiteSpace()
