@@ -10,9 +10,9 @@ set tabstop=4                                                       "keep defaul
 function! TrimWhiteSpace()
 	let l = line(".")
 	let c = col(".")
-	%s/\s\+$//e
-	%s/\t\+$//e
-	%s#\($\n\s*\)\+\%$##
+	:silent! %s/\s\+$//e
+	:silent! %s/\t\+$//e
+	:silent! %s#\($\n\s*\)\+\%$##
 	call cursor(l, c)
 endfunction
 autocmd BufWritePre * :call TrimWhiteSpace()
@@ -273,4 +273,3 @@ highlight clear SignColumn
 
 " vim-ruby
 let g:ruby_spellcheck_strings = 1
-
