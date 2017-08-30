@@ -219,7 +219,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " eruby warnings in puppet templates; ruby variable shadowing warning
-let g:syntastic_quiet_messages = {"regex": '.*put parentheses or even spaces.*\|possibly useless use of a variable in void context\|shadowing outer local variable'}
+let g:syntastic_quiet_messages = {"regex": '.*ambiguous first argument.*\|possibly useless use of a variable in void context\|shadowing outer local variable'}
 
 " Rust/Racer
 let g:racer_cmd			= $HOME . "/.vim/bundle/racer/target/release/racer"
