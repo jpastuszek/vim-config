@@ -273,3 +273,10 @@ highlight clear SignColumn
 
 " vim-ruby
 let g:ruby_spellcheck_strings = 1
+
+" comments
+let g:NERDDefaultAlign = "left"
+" this maps CTRL+/
+vmap <silent><C-_> <Plug>NERDCommenterToggle
+
+"

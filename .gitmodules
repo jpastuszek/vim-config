@@ -67,3 +67,6 @@
 [submodule "bundle/idris-vim"]
 	path = bundle/idris-vim
 	url = https://github.com/idris-hackers/idris-vim.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
