@@ -221,6 +221,9 @@ let g:syntastic_check_on_wq = 0
 " eruby warnings in puppet templates; ruby variable shadowing warning
 let g:syntastic_quiet_messages = {"regex": '.*ambiguous first argument.*\|possibly useless use of a variable in void context\|shadowing outer local variable'}
 
+" Disabled by default
+let g:syntastic_mode_map = { 'mode': 'passive' }
+
 " Rust/Racer
 let g:racer_cmd			= $HOME . "/.vim/bundle/racer/target/release/racer"
 let $RUST_SRC_PATH		= $HOME . "/.multirust/toolchains/master/src"
