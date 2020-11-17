@@ -1,6 +1,6 @@
 call pathogen#infect()
 set modeline                                                        "autoloading of this
-set noexpandtab                                                       "expand tabs to spaces, when not an indent
+set softtabstop=0 noexpandtab                                       "expand tabs to spaces, when not an indent
 set smarttab                                                        "let's be smart about our tabs
 set shiftwidth=4                                                    "make tabs 4 spaces
 set softtabstop=4                                                   "softtab value, 4 spaces
