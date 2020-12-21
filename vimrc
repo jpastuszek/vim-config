@@ -6,6 +6,8 @@ set shiftwidth=4                                                    "make tabs 4
 set softtabstop=4                                                   "softtab value, 4 spaces
 set tabstop=4                                                       "keep default for softtab compat.
 
+set encoding=utf-8
+
 " remove trailing lines
 function! TrimWhiteSpace()
 	let l = line(".")
@@ -198,7 +200,7 @@ augroup markdown
 augroup END
 
 " Ignore witespace in vimdiff
-set diffopt+=iwhite
+"set diffopt+=iwhite
 set diffexpr=""
 
 " Buffer management
