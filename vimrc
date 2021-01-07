@@ -37,7 +37,7 @@ map <c-9> <ESC>:bn<CR>
 map <c-0> <ESC>:bp<CR>
 
 " disable search highlighting with a single keypress:
-map - :nohls<cr>
+map - :nohls<cr>:GitGutterAll<cr>
 
 " Highlight every other line
 map ,<Tab> :set hls<CR>/\n.*\n/<CR>
