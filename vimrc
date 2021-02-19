@@ -158,12 +158,6 @@ set tags+=tags;/
 
 set updatetime=400
 
-" Viki config
-let g:vikiOpenFileWith_ANY = "exec 'silent !kfmclient exec '. escape('%{FILE}', ' &!%')"
-let g:vikiOpenUrlWith_http = "exec 'silent !firefox '. escape('%{URL}', ' &!%')"
-au BufRead,BufNewFile *.viki set ft=viki
-let g:vikiNameSuffix = ".viki"
-
 let g:maplocalleader = "\\"
 
 au BufRead,BufNewFile *.rb set tabstop=2
@@ -187,12 +181,6 @@ map td :tabclose<CR>
 
 map ;p :set paste<CR>
 map ;n :set nopaste<CR>
-
-function! Viki()
-    edit ~/Misc/Viki/StartPage.viki
-endfunction
-
-nmap <silent> ;v  :call Viki()<CR>
 
 set nobackup
 
@@ -279,3 +267,16 @@ highlight clear SignColumn
 
 " vim-ruby
 let g:ruby_spellcheck_strings = 1
+
+" CamelCaseMotion
+omap <silent> iw <Plug>CamelCaseMotion_iw
+xmap <silent> iw <Plug>CamelCaseMotion_iw
+omap <silent> ib <Plug>CamelCaseMotion_ib
+xmap <silent> ib <Plug>CamelCaseMotion_ib
+omap <silent> ie <Plug>CamelCaseMotion_ie
+xmap <silent> ie <Plug>CamelCaseMotion_ie
+
+map <silent> ,w <Plug>CamelCaseMotion_w
+map <silent> ,b <Plug>CamelCaseMotion_b
+map <silent> ,e <Plug>CamelCaseMotion_e
+map <silent> ,ge <Plug>CamelCaseMotion_ge
