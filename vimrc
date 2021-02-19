@@ -1,4 +1,14 @@
+set nocompatible
+filetype plugin indent on
+set smartindent
+syntax on
+
+" copy and paste - https://stackoverflow.com/questions/2861627/paste-in-insert-mode
+inoremap <C-v> <C-r>+
+vnoremap <C-c> "+y
+
 call pathogen#infect()
+
 set modeline                                                        "autoloading of this
 set softtabstop=0 noexpandtab                                       "expand tabs to spaces, when not an indent
 set smarttab                                                        "let's be smart about our tabs
@@ -26,11 +36,6 @@ map ,n :set nospell<cr>
 set hlsearch                                                        "highlight what I find
 set incsearch                                                       "show matches as I type
 set ignorecase smartcase                                            "ignore case unless I type in multi-case
-
-set nocompatible
-filetype plugin indent on
-set smartindent
-syntax on
 
 " Left and right are for switching buffers, not moving the cursor:
 map <c-9> <ESC>:bn<CR>
@@ -63,6 +68,8 @@ if has('gui_running')
     set guioptions-=r                                                   "kill right scrollbar
     set guioptions-=l                                                   "kill left scrollbar
     set guioptions-=L                                                   "kill left scrollbar with multiple buffers
+
+	colorscheme evening
 endif
 
 " English {{{
@@ -252,13 +259,6 @@ if executable('rg')
 	let g:unite_source_grep_default_opts = '--vimgrep --color never'
 	let g:unite_source_grep_recursive_opt = ''
 	let g:unite_source_grep_encoding = 'utf-8'
-elseif executable('pt')
-	" pt (the_platinum_searcher)
-	" brew install pt
-	let g:unite_source_grep_command = 'pt'
-	let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-	let g:unite_source_grep_recursive_opt = ''
-	let g:unite_source_grep_encoding = 'utf-8'
 endif
 
 " Custom mappings for the unite buffer
@@ -278,10 +278,3 @@ highlight clear SignColumn
 
 " vim-ruby
 let g:ruby_spellcheck_strings = 1
-
-" comments
-let g:NERDDefaultAlign = "left"
-" this maps CTRL+/
-vmap <silent><C-_> <Plug>NERDCommenterToggle
-
-"
