@@ -7,7 +7,8 @@ syntax on
 inoremap <C-v> <C-r>+
 vnoremap <C-c> "+y
 
-call pathogen#infect()
+" load all plugins from bundle dir
+execute pathogen#infect()
 
 set modeline                                                        "autoloading of this
 set softtabstop=0 noexpandtab                                       "expand tabs to spaces, when not an indent
