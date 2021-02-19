@@ -3,6 +3,16 @@ filetype plugin indent on
 set smartindent
 syntax on
 
+" :map command creates a key map that works in normal, visual, select and operator pending modes
+" nmap, nnoremap, nunmap          Normal mode
+" imap, inoremap, iunmap          Insert and Replace mode
+" vmap, vnoremap, vunmap          Visual and Select mode
+" xmap, xnoremap, xunmap          Visual mode
+" smap, snoremap, sunmap          Select mode
+" cmap, cnoremap, cunmap          Command-line mode
+" omap, onoremap, ounmap          Operator pending mode
+" Xnoremap are like map but do not expand the mapping they are pointing to
+
 " copy and paste - https://stackoverflow.com/questions/2861627/paste-in-insert-mode
 inoremap <C-v> <C-r>+
 vnoremap <C-c> "+y
@@ -30,7 +40,7 @@ function! TrimWhiteSpace()
 endfunction
 autocmd BufWritePre * :call TrimWhiteSpace()
 
-"set spell
+" set spell
 map ,s :set spell<cr>
 map ,n :set nospell<cr>
 
@@ -133,7 +143,7 @@ iab obnsolete  obsolete
 iab flase      false
 iab recrusive  recursive
 iab Recrusive  Recursive
-"}}}
+" }}}
 " Days of week {{{
 iab monday     Monday
 iab tuesday    Tuesday
@@ -142,7 +152,7 @@ iab thursday   Thursday
 iab friday     Friday
 iab saturday   Saturday
 iab sunday     Sunday
-"}}}
+" }}}
 
 " have <F1> prompt for a help topic, rather than displaying the introduction
 " page, and have it do this from any mode:
@@ -159,14 +169,6 @@ set tags+=tags;/
 set updatetime=400
 
 let g:maplocalleader = "\\"
-
-au BufRead,BufNewFile *.rb set tabstop=2
-au BufRead,BufNewFile *.rb set shiftwidth=2
-
-" On ubuntu (running Vim in gnome-terminal)
-" The reason for the double-command on <C-c> is due to some weirdness with the X clipboard system.
-vmap <C-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 
 " sessions
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
@@ -199,13 +201,26 @@ augroup END
 "set diffopt+=iwhite
 set diffexpr=""
 
-" Buffer management
+" Butane buffer management
 noremap <leader>bd :Bclose<CR>      " Close the buffer.
 noremap <leader>bl :ls<CR>          " List buffers.
 noremap <leader>bn :bn<CR>          " Next buffer.
 noremap <leader>bp :bp<CR>          " Previous buffer.
 noremap <leader>bt :b#<CR>          " Toggle to most recently used buffer.
 noremap <leader>bx :Bclose!<CR>     " Close the buffer & discard changes.
+
+" NERD Commenter
+" <C-_> is <C-\>!!!!
+map <C-_> <plug>NERDCommenterToggle
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
 
 " Syntastic
 set statusline+=%#warningmsg#
