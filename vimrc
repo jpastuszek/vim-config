@@ -191,12 +191,6 @@ set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 " put .swp and others to /tmp dir and not pwd
 set dir=/tmp//
 
-" use github markdown by default
-augroup markdown
-	au!
-	au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
-
 " Ignore witespace in vimdiff
 "set diffopt+=iwhite
 set diffexpr=""
@@ -295,3 +289,14 @@ map <silent> ,w <Plug>CamelCaseMotion_w
 map <silent> ,b <Plug>CamelCaseMotion_b
 map <silent> ,e <Plug>CamelCaseMotion_e
 map <silent> ,ge <Plug>CamelCaseMotion_ge
+
+" FT Detect
+" use github markdown by default
+augroup markdown
+	au!
+	au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
+au BufRead,BufNewFile *.pp setfiletype puppet
+au BufRead,BufNewFile *.rb set tabstop=2
+au BufRead,BufNewFile *.rb set shiftwidth=2
