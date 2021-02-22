@@ -1,4 +1,4 @@
 #!/bin/sh
+echo $1 >> plugins
 cd ~/.vim/bundle
-git submodule add $1
-git submodule init
+git clone $1
