@@ -1,0 +1,2 @@
+#!/bin/bash
+cd bundle && cat ../plugins | while read F; do echo $F; (git clone $F); done
