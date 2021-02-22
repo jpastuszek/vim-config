@@ -15,6 +15,7 @@ syntax on
 
 " copy and paste - https://stackoverflow.com/questions/2861627/paste-in-insert-mode
 inoremap <C-v> <C-r>+
+cnoremap <C-v> <C-r>+
 nnoremap <C-v> "+p
 vnoremap <C-c> "+y
 vnoremap <C-x> "+d
@@ -59,10 +60,10 @@ map <c-9> <ESC>:bn<CR>
 map <c-0> <ESC>:bp<CR>
 
 " disable search highlighting with a single keypress:
-map - :nohls<cr>:GitGutterAll<cr>
+map - <ESC>:nohls<cr>:GitGutterAll<cr>
 
 " Highlight every other line
-map ,<Tab> :set hls<CR>/\n.*\n/<CR>
+map ,<Tab> <ESC>:set hls<CR>/\n.*\n/<CR>
 
 " This is for working across multiple xterms and/or gvims
 " Transfer/read and write one block of text between vim sessions (capture
@@ -73,6 +74,8 @@ nmap ;w :. w! ~/.vimxfer<CR>
 nmap ;r :r ~/.vimxfer<CR>
 " Append
 nmap ;a :. w! >>~/.vimxfer<CR>
+
+colorscheme codedark
 
 if has('gui_running')
     set columns=9999
@@ -85,8 +88,10 @@ if has('gui_running')
     set guioptions-=r                                                   "kill right scrollbar
     set guioptions-=l                                                   "kill left scrollbar
     set guioptions-=L                                                   "kill left scrollbar with multiple buffers
+endif
 
-	colorscheme evening
+if $TERM == 'st-256color'
+	nnoremap <C-z> :echo 'st!'<cr>
 endif
 
 " English {{{
@@ -176,17 +181,6 @@ set updatetime=400
 
 let g:maplocalleader = "\\"
 
-" sessions
-set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
-map <c-q> :mksession! ~/.vim/.session <cr>
-map <c-s> :source ~/.vim/.session <cr>
-
-" tabs
-" map tl :tabnext<CR> " use gt
-" map th :tabprev<CR> " use gT
-map tn :tabnew<CR>
-map td :tabclose<CR>
-
 map ;p :set paste<CR>
 map ;n :set nopaste<CR>
 
@@ -236,10 +230,6 @@ let g:syntastic_quiet_messages = {"regex": '.*ambiguous first argument.*\|possib
 
 " Disabled by default
 let g:syntastic_mode_map = { 'mode': 'passive' }
-
-" Rust/Racer
-let g:racer_cmd			= $HOME . "/.vim/bundle/racer/target/release/racer"
-let $RUST_SRC_PATH		= $HOME . "/.multirust/toolchains/master/src"
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
