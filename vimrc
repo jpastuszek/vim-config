@@ -17,9 +17,8 @@ syntax on
 inoremap <C-v> <C-r>+
 nnoremap <C-v> "+p
 vnoremap <C-c> "+y
-" C-c is captured in alactritty
-vnoremap <C-y> "+y
-" in alactritty C-c will also sent C-t
+vnoremap <C-x> "+d
+" in alactritty C-c will also sent C-t as a workaround to trigger copy in vim
 vnoremap <C-t> "+y
 " nnoremap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 " vnoremap <C-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
