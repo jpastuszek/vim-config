@@ -27,3 +27,12 @@ impl From<`from^> for `to^ {
 		`cursor^
 	}
 }
+
+XPT itryfrom " impl TryFrom
+impl TryFrom<`from^> for `to^ {
+	type Error = `error^;
+
+	fn try_from(value: `from^) -> Result<`to^, `error^> {
+		Ok(`cursor^)
+	}
+}
