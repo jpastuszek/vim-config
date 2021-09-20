@@ -1,5 +1,10 @@
 XPTemplate priority=personal
 
+XPT gpl " GPL 3 or later licens
+// SPDX-FileCopyrightText: 2021 Jakub Pastuszek <jpastuszek@protonmail.com>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 XPT ddebug " derive Debug
 #[derive(Debug)]
 
@@ -36,3 +41,20 @@ impl TryFrom<`from^> for `to^ {
 		Ok(`cursor^)
 	}
 }
+
+XPT tblock " test block
+#[cfg(test)]
+mod tests {
+	use super::*;
+
+	#[test]
+	fn test_`name^) {
+		`cursor^
+	}
+}
+
+XPT test " test function
+	#[test]
+	fn test_`name^) {
+		`cursor^
+	}
