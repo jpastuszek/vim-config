@@ -48,13 +48,13 @@ mod tests {
 	use super::*;
 
 	#[test]
-	fn test_`name^) {
+	fn test_`name^() {
 		`cursor^
 	}
 }
 
 XPT test " test function
 	#[test]
-	fn test_`name^) {
+	fn test_`name^() {
 		`cursor^
 	}
