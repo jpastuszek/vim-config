@@ -21,5 +21,7 @@ nginx
 NCSA
 syslog
 MiB
-unspoofable
-Minimal/!
+bitmask
+chmod
+POSIX
+frontend
