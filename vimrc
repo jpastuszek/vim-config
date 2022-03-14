@@ -296,3 +296,6 @@ augroup END
 au BufRead,BufNewFile *.pp setfiletype puppet
 au BufRead,BufNewFile *.rb set tabstop=2
 au BufRead,BufNewFile *.rb set shiftwidth=2
+
+" netrw (neovim builtin)
+let g:netrw_fastbrowse = 0
