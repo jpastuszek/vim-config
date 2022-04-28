@@ -1,1 +1,1 @@
-so vimrc
+so ~/.vim/vimrc
