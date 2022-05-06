@@ -1,2 +1,3 @@
 #!/bin/bash
-cd bundle && cat ../plugins | while read F; do echo $F; (git clone $F); done
+( cd bundle && cat ../plugins | while read F; do echo $F; (git clone $F); done )
+( cd bundle-nvim && cat ../plugins-nvim | while read F; do echo $F; (git clone $F); done )

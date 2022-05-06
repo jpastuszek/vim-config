@@ -1,0 +1,4 @@
+#!/bin/sh
+echo $1 >> plugins-nvim
+cd ~/.vim/bundle-nvim
+git clone $1
