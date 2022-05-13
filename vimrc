@@ -305,6 +305,8 @@ if has('nvim')
 	execute pathogen#infect('bundle-nvim/{}')
 	luafile ~/.vim/nvim.lua
 
+	set completeopt=menu,menuone,noselect
+
 	" Code navigation shortcuts
 	" as found in :help lsp
 	nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -321,8 +323,10 @@ if has('nvim')
 	nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
 
 	" Goto previous/next diagnostic warning/error
+	nnoremap <silent> <leader>e <cmd>lua vim.diagnostic.open_float()<CR>
 	nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
 	nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
+	nnoremap <silent> <leader>q <cmd>lua vim.diagnostic.setloclist()<CR>
 
 	" have a fixed column for the diagnostics to appear in
 	set signcolumn=yes
